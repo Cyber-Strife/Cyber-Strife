@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  web:
+    container_name: cyber-strife-web
+    build: ./src/web/frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src/web/frontend:/usr/src/app
+    environment:
+      - NODE_ENV=development
+    command: npm start
+
+  api:
+    container_name: cyber-strife-api
+    build: ./src/web/backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./src/web/backend:/usr/src/app
+    environment:
+      - FLASK_ENV=development
+    command: flask run --host=0.0.0.0
+
+  db:
+    container_name: cyber-strife-db
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - cyberstrife_db_data:/data/db
+
+volumes:
+  cyberstrife_db_data:
