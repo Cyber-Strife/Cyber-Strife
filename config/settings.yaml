@@ -1,0 +1,19 @@
+# settings.yaml
+
+network:
+  name: "Ethereum Mainnet"
+  rpc_url: "https://mainnet.infura.io/v3/YOUR_INFURA_PROJECT_ID"
+  gas_limit: 5000000
+  transaction_fee: 0.0005
+
+ai:
+  model_path: "src/agents/models/"
+  training_data_path: "src/agents/data/"
+  max_epochs: 1000
+  learning_rate: 0.001
+
+database:
+  uri: "mongodb://localhost:27017/cyberstrife"
+  username: "admin"
+  password: "password123"
+  name: "cyberstrife_db"
